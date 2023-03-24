@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CROCOHOST</title>
+    <link rel="icon" href="{{ url_for('static', filename='/imgs/croco_icon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>CROCOHOST</title>
+</head>
+<body>
+<div class="container">
+<div>
+<img src="{{ image }}" alt="Image not found" align="left">
+<form method="get" style="margin-top: 20px">
+<button type="submit" name="control_button" value="Previous">Предыдущее изображение</button>
+<button type="submit" name="control_button" value="Next">Следующее изображение</button>
+</form>
+
+
+{% if descriprion == 'Изображение еще не описано' %}
+<p>{{ descriprion }}</p>
+{% else %}
+</div>
+
+<div>
+    <p>Год - {{ year }}</p>
+    <p>Публикация - {{ publication }}</p>
+    <p>Изображение - {{ name }}</p>
+    <p>Тип - {{ type }}</p>
+    <p>Тема публикации - {{ topic }}</p>
+    {% if countries == '' %}
+    <p>Упомянутые страны отсутсвуют</p>
+    {% else %}
+    <p>Упомянутые страны - {{ countries }}</p>
+    {% endif %}
+
+    {% if personalities == '' %}
+    <p>Упомянутые личности отсутсвуют</p>
+    {% else %}
+    <p>Упомянутые личности - {{ personalities }}</p>
+    {% endif %}
+
+    {% for key, value in descriprion.items() %}
+        {% if descriprion[key] == True %}
+	<p><input type="checkbox" name="bool_category_displayer" disabled="disabled" checked > {{ key }}</p>
+        {% else %}
+	<p><input type="checkbox" name="bool_category_displayer" disabled="disabled"> {{ key }}</p>
+        {% endif %}
+    {% endfor %}
+
+{% endif %}
+</div>
+</div>
+
+
+</body>
+</html>
+

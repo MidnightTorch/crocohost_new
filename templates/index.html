@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href= "{{ url_for('static', filename='styles.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='/imgs/croco_icon.png') }}">
+    <title>CROCOHOST</title>
+</head>
+<body>
+<h1>Здесь представлены изображения по дипломной работе:</h1>
+<h2>Образ «другого» в советской карикатуре: выборочное исследование материалов журнала «Крокодил» (1920-е – 1980-е годы)</h2>
+
+<div class="list_of_options">
+  <ul>
+    <li><a href="/caricatures">Посмотреть изображения и описания</a></li>
+    <li><a href="/tree">Посмотреть дерево изображений</a></li>
+    <li><a href="{{ url_for('static', filename='db_dump.sql') }}" download>Скачать базу данных</a></li>
+    <li><a href="{{ url_for('static', filename='corpus.zip') }}" download>Скачать корпус изображений</a></li>
+  </ul>
+</div>
+</body>
+</html>

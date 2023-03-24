@@ -1,0 +1,29 @@
+body {
+background-color: #DCDCDC;
+}
+h1 {
+text-align: center;
+font-size: 40px;
+font-family: Arial, serif;
+}
+
+h2 {
+text-align: center;
+font-size: 35px;
+font-family: Comic Sans MS, Comic Sans, cursive;
+text-decoration: wavy underline;
+}
+
+.list_of_options {
+margin-top: 10%;
+font-size: 25px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(119, 136, 153, 0.3);
+  padding: 1em;
+
+}
+
