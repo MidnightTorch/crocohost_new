@@ -1,0 +1,10 @@
+cryptography==3.4.8
+Flask==2.3.2
+importlib_metadata==4.6.4
+Jinja2==3.1.2
+keyring==23.5.0
+lockfile==0.12.2
+Pillow==9.0.1
+protobuf==3.12.4
+PyMySQL==1.0.3
+zipp==1.0.0
