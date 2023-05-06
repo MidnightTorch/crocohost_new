@@ -1,0 +1,102 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: linear-gradient(to bottom right, #4F4F4F, #2F4F4F);
+}
+
+.column-left {
+  width: 40%;
+  padding: 20px;
+  background-color: #FFF;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.column-right {
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #ddd;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  margin-left: 20px;
+  width: 40%;
+}
+
+.column-right h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.column-right p {
+  margin: 0 0 10px 0;
+}
+
+.column-right .label {
+  font-weight: bold;
+}
+
+.column-right .countries,
+.column-right .personalities {
+  font-style: italic;
+}
+
+.column-right .topic {
+  text-transform: uppercase;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+button[type="submit"] {
+  background-color: #2F4F4F;
+  color: #FFF;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #3CB371;
+}
+
+p {
+  margin: 0 0 10px 0;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    flex-wrap: wrap;
+  }
+
+  .column-left {
+    margin-right: 20px;
+  }
+
+  .column-right {
+    column-count: 2;
+    column-gap: 20px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .column-left {
+    width: 30%;
+  }
+
+  .column-right {
+    width: 60%;
+  }
+}

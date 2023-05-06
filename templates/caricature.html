@@ -1,57 +1,59 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>CROCOHOST</title>
-    <link rel="icon" href="{{ url_for('static', filename='/imgs/croco_icon.png') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <title>CROCOHOST</title>
-</head>
-<body>
-<div class="container">
-<div>
-<img src="{{ image }}" alt="Image not found" align="left">
-<form method="get" style="margin-top: 20px">
-<button type="submit" name="control_button" value="Previous">Предыдущее изображение</button>
-<button type="submit" name="control_button" value="Next">Следующее изображение</button>
-</form>
+    <link rel="icon" href="{{ url_for('static', filename='imgs/croco_icon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='caricature_styles.css') }}">
+  </head>
+  <body class="container">
+    <div class="column-left">
+      <img class="croco-image" src="{{ image }}" alt="Ошибка! Изображение не найдено!">
+      <form method="get" action="/caricatures" style="margin-top: 20px">
+        <button type="submit" name="caricature" value="&year={{ previous[0] }}&publication={{ previous[1] }}&screen={{ previous[2] }}">Предыдущее изображение</button>
+        <button type="submit" name="caricature" value="&year={{ next[0] }}&publication={{ next[1] }}&screen={{ next[2] }}">Следующее изображение</button>
+      </form>
+    </div>
 
-
-{% if descriprion == 'Изображение еще не описано' %}
-<p>{{ descriprion }}</p>
-{% else %}
-</div>
-
-<div>
-    <p>Год - {{ year }}</p>
-    <p>Публикация - {{ publication }}</p>
-    <p>Изображение - {{ name }}</p>
-    <p>Тип - {{ type }}</p>
-    <p>Тема публикации - {{ topic }}</p>
-    {% if countries == '' %}
-    <p>Упомянутые страны отсутсвуют</p>
-    {% else %}
-    <p>Упомянутые страны - {{ countries }}</p>
-    {% endif %}
-
-    {% if personalities == '' %}
-    <p>Упомянутые личности отсутсвуют</p>
-    {% else %}
-    <p>Упомянутые личности - {{ personalities }}</p>
-    {% endif %}
-
-    {% for key, value in descriprion.items() %}
-        {% if descriprion[key] == True %}
-	<p><input type="checkbox" name="bool_category_displayer" disabled="disabled" checked > {{ key }}</p>
-        {% else %}
-	<p><input type="checkbox" name="bool_category_displayer" disabled="disabled"> {{ key }}</p>
-        {% endif %}
-    {% endfor %}
-
-{% endif %}
-</div>
-</div>
-
-
-</body>
+    <div class="column-right">
+      <h2>{{ name }}</h2>
+      <div class="description">
+        <div class="description-left">
+          <p class="label">Год</p>
+          <p class="year">{{ year }}</p>
+          <p class="label">Публикация</p>
+          <p class="publication">{{ publication }}</p>
+          <p class="label">Тип</p>
+          <p class="type">{{ type }}</p>
+          <p class="label">Тема публикации</p>
+          <p class="topic">{{ topic }}</p>
+        </div>
+        <div class="description-right">
+          {% if countries == '' %}
+          <p class="label">Упомянутые страны</p>
+          <p>Отсутствуют</p>
+          {% else %}
+          <p class="label">Упомянутые страны</p>
+          <p class="countries">{{ countries }}</p>
+          {% endif %}
+          {% if personalities == '' %}
+          <p class="label">Упомянутые личности</p>
+          <p>Отсутствуют</p>
+          {% else %}
+          <p class="label">Упомянутые личности</p>
+          <p class="personalities">{{ personalities }}</p>
+          {% endif %}
+          {% if description != 'Изображение еще не описано' %}
+          {% else %}
+          {% for key, value in descriprion.items() %}
+          {% if descriprion[key] == True %}
+          <p><input type="checkbox" name="bool_category_displayer" disabled="disabled" checked class="bool-category"> {{ key }}</p>
+          {% else %}
+          <p><input type="checkbox" name="bool_category_displayer" disabled="disabled" class="bool-category"> {{ key }}</p>
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
-

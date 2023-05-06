@@ -7,20 +7,29 @@
 </head>
 <body>
 
-Дерево изображений
-{% for year in loader.dir_tree %}
+<h1>Дерево изображений</h1>
 
-<li><a>{{ year }}</a>
-    {% for publication in loader.dir_tree[year] %}
-<li><a>{{ publication }}</a></li>
-{% for screen in loader.dir_tree[year][publication] %}
-<li><a href="/caricatures?specific_img&year={{year}}&publication={{publication}}&screen={{screen}}">{{ screen }}</a>
-</li>
-{% endfor %}
-{% endfor %}
-</li>
-{% endfor %}
-
+<ul class="year">
+    {% for year in loader.dir_tree %}
+    <li>
+        <a>{{ year }}</a>
+        <ul class="publication">
+            {% for publication in loader.dir_tree[year] %}
+            <li>
+                <a>{{ publication }}</a>
+                <ul class="screen">
+                    {% for screen in loader.dir_tree[year][publication] %}
+                    <li>
+                        <a href="/caricatures?specific_img&year={{year}}&publication={{publication}}&screen={{screen}}">{{ screen }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
 
 </body>
 </html>
